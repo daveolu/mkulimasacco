@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mkulima SACCO - Save To Grow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="public/logo.png" alt="Mkulima SACCO Logo" class="logo-img">
+    
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Loan Calculator</a></li>
+            <li><a href="#notices">Notices</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html" class="login-btn">Member Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<section class="hero">
+    <h2>Empowering Farmers Financially</h2>
+    <p>Affordable Loans • Secure Savings • Financial Growth</p>
+    <div class="cta-buttons">
+        <button><a href="signup.html">Open Account</a></button>
+        <button>Pay/Withdraw</button>
+        <button class="secondary">Apply for Loan</button>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+        <div>
+            <h3>Savings Accounts</h3>
+            <p>Flexible savings plans for individuals and groups.</p>
+        </div>
+        <div>
+            <h3>Loan Products</h3>
+            <p>Affordable agricultural and development loans.</p>
+        </div>
+        <div>
+            <h3>Mobile Banking</h3>
+            <p>Access your account anytime, anywhere.</p>
+        </div>
+    </div>
+</section>
+
+<section id="calculator" class="calculator">
+    <h2>Loan Repayment Calculator</h2>
+    <input type="number" id="amount" placeholder="Loan Amount">
+    <input type="number" id="interest" placeholder="Interest Rate (%)">
+    <input type="number" id="years" placeholder="Years">
+    <button onclick="calculateLoan()">Calculate</button>
+    <p id="result"></p>
+</section>
+
+<section id="notices" class="notices">
+    <h2>Latest Notices</h2>
+    <ul>
+        <li>📢 AGM Scheduled for March 2026</li>
+        <li>📈 New Reduced Loan Interest Rates</li>
+        <li>📄 Download Updated Loan Application Forms</li>
+    </ul>
+</section>
+
+<section class="security">
+    <h2>Your Security Matters</h2>
+    <p>We are SASRA regulated and use secure encrypted systems to protect your data.</p>
+</section>
+
+<footer id="contact">
+    <p>📍 Mkulima SACCO Headquarters</p>
+    <p>📞 +254 700 000000</p>
+    <p>✉ info@mkulimasacco.co.ke</p>
+    <p>&copy; 2026 Mkulima SACCO. All Rights Reserved.</p>
+</footer>
+
+<script>
+function calculateLoan() {
+    let amount = document.getElementById("amount").value;
+    let interest = document.getElementById("interest").value / 100 / 12;
+    let years = document.getElementById("years").value * 12;
+
+    let payment = (amount * interest) / (1 - Math.pow(1 + interest, -years));
+    document.getElementById("result").innerText =
+        "Estimated Monthly Payment: Ksh " + payment.toFixed(2);
+}
+</script>
+
+</body>
+</html>
